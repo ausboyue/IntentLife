@@ -63,6 +63,25 @@ public class ActivityB extends AppCompatActivity {
 }
 ```
 
+
+### Framework support
+
+#### Type of data 
+
+- [x] Support java eight basic data types and their arrays and collections.
+- [x] Classes that support the implementation of the Serializable interface.
+- [x] Support for classes that implement Parcelable interfaces and their arrays and collections.
+- [ ] The next version supports Bundle data.
+
+#### Interface scenario
+
+- [x] Support jump between activities.
+- [ ] The next version supports loading Fragment.
+
+### Prompt
+
+The target field should not have the `private` modifier, otherwise the data will not be bound with field.
+
 ## Bugs Report
 
 If you find any bug when using it, please contact [me](mailto:ausboyue@qq.com). Thanks for helping me making better.
