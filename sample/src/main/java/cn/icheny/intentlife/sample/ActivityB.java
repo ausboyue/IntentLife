@@ -7,7 +7,7 @@ import android.widget.TextView;
 import cn.icheny.intentlife.IntentLife;
 import cn.icheny.intentlife.annotation.BindIntentKey;
 
-public class SecondActivity extends AppCompatActivity {
+public class ActivityB extends AppCompatActivity {
     @BindIntentKey("key_user")
     User mUser;
 
@@ -15,7 +15,9 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secend);
+        //  IntentLife inject
         IntentLife.bind(this);
+
         TextView tv_user_name = findViewById(R.id.tv_user_name);
         tv_user_name.setText(
                 "Hello , I am " + mUser.getName()

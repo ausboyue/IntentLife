@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityA extends AppCompatActivity {
 
 
     @Override
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         user.setName("Cheny");
         user.setJob("android developer");
 
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, ActivityB.class);
         intent.putExtra("key_user", user);
         startActivity(intent);
     }
