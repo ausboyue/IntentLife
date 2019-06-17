@@ -71,7 +71,6 @@ public class ActivityB extends AppCompatActivity {
 - [x] Support java eight basic data types and their arrays and collections.
 - [x] Classes that support the implementation of the Serializable interface.
 - [x] Support for classes that implement Parcelable interfaces and their arrays and collections.
-- [ ] The next version supports Bundle data.
 
 #### Interface scenario
 
