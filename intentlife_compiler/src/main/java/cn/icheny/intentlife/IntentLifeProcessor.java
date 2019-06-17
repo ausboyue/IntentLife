@@ -40,8 +40,8 @@ public class IntentLifeProcessor extends AbstractProcessor {
 
     @Override
     public SourceVersion getSupportedSourceVersion() {
-        // Support java7
-        return SourceVersion.RELEASE_7;
+        // Support java8
+        return SourceVersion.RELEASE_8;
     }
 
     @Override
