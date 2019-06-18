@@ -4,10 +4,10 @@
 
 **[English](./README.md) | [简体中文]**
 
-![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Release](https://img.shields.io/badge/Release-1.0.0-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-143KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-16KB-blue.svg)
+![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.0-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-143KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-16KB-blue.svg)
 
 
-#### Description
+#### 介绍
 
 一个自动绑定Intent携带的数据的android库。
 
