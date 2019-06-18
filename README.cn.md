@@ -2,7 +2,7 @@
 
 ## IntentLife
 
-**[English](./README.md) | [简体中文]**
+**[English](./README.md) | 简体中文**
 
 ![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.0-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-143KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-16KB-blue.svg)
 
@@ -93,7 +93,6 @@ public class ActivityB extends AppCompatActivity {
 
 ## Bugs反馈
 
-If you find any bug when using it, please contact [me](mailto:ausboyue@qq.com). Thanks for helping me making better.
 如果你在使用期间发现了bug，请联系[我](mailto:ausboyue@qq.com)。帮助我将它做得更好，谢谢。
 
 ## 关于作者
