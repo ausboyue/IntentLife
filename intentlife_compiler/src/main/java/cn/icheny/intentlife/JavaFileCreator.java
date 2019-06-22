@@ -23,6 +23,14 @@ import javax.lang.model.util.Elements;
  * </pre>
  */
 final class JavaFileCreator {
+    private static final String FILE_COMMENT = "This class is generated automatically by IntentLife. Do not modify!";
+    private static final String BUNDLE_CLASS_NAME = "android.os.Bundle";
+    private static final String BINDER_CLASS_SUFFIX = "_Binder";
+    private static final String CONDITION_CONTAINS_KEY = "if (source.containsKey($S))";
+    private static final String STATEMENT_GET_DATA = "target.$N=($L)source.get($S)";
+    private static final String TARGET = "target";
+    private static final String SOURCE = "source";
+
     static void create(Elements elementUtils, Filer filer, Map<TypeElement, List<TargetField>> targetClasses) {
         for (Map.Entry<TypeElement, List<TargetField>> entry : targetClasses.entrySet()) {
 
@@ -36,34 +44,28 @@ final class JavaFileCreator {
             // Activity class name ,like "cn.icheny.intentlife.sample.MainActivity"
             final String className = activityTypeElement.getQualifiedName().toString();
             // helper class simple name,like "MainActivity_Binder"
-            final String helperClassName = className.substring(packageName.length() + 1) + "_Binder";
+            final String helperClassName = className.substring(packageName.length() + 1) + BINDER_CLASS_SUFFIX;
 
             // constructor method
-            final MethodSpec.Builder methodBuilder = MethodSpec.constructorBuilder()
+            final MethodSpec.Builder privateMethodBuilder = MethodSpec.constructorBuilder().addModifiers(Modifier.PRIVATE);
+            final MethodSpec.Builder publicMethodBuilder = MethodSpec.constructorBuilder()
                     .addModifiers(Modifier.PUBLIC)
-                    .addParameter(ClassName.bestGuess(className), "target");
-            methodBuilder.addStatement("android.content.Intent intent=target.getIntent()");
+                    .addParameter(ClassName.bestGuess(className), TARGET)
+                    .addParameter(ClassName.bestGuess(BUNDLE_CLASS_NAME), SOURCE);
             for (TargetField field : fields) {
                 // like "java.lang.String"
                 final String typeNameStr = field.fieldType;
-                methodBuilder.beginControlFlow("if (intent.hasExtra($S))", field.keyName);
-                if (field.isParcelable) {
-                    // like "target.userName=(java.lang.String)intent.getParcelableExtra("key_user");"
-                    methodBuilder.addStatement("target.$N=($L)intent.getParcelableExtra($S)"
-                            , field.fieldName, typeNameStr, field.keyName);
-                } else {
-                    // like "target.userName=(java.lang.String)intent.getSerializableExtra("key_user");"
-                    methodBuilder.addStatement("target.$N=($L)intent.getSerializableExtra($S)"
-                            , field.fieldName, typeNameStr, field.keyName);
-                }
-                methodBuilder.endControlFlow();
-
+                publicMethodBuilder.beginControlFlow(CONDITION_CONTAINS_KEY, field.keyName);
+                // like "target.userName=(java.lang.String)source.get("key_user");"
+                publicMethodBuilder.addStatement(STATEMENT_GET_DATA, field.fieldName, typeNameStr, field.keyName);
+                publicMethodBuilder.endControlFlow();
             }
             final TypeSpec.Builder typeBuilder = TypeSpec.classBuilder(helperClassName)
                     .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
-                    .addMethod(methodBuilder.build());
+                    .addMethod(privateMethodBuilder.build())
+                    .addMethod(publicMethodBuilder.build());
             final JavaFile file = JavaFile.builder(packageName, typeBuilder.build())
-                    .addFileComment("This class is generated automatically by IntentLife. Do not modify!")
+                    .addFileComment(FILE_COMMENT)
                     .build();
             try {
                 file.writeTo(filer);

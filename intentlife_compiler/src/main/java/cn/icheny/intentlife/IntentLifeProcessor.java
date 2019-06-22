@@ -92,7 +92,7 @@ public class IntentLifeProcessor extends AbstractProcessor {
             // like "cn.icheny.intentlife.sample.User"
             field.fieldType = element.asType().toString();
             // Convert to TypeElement
-            field.isParcelable = isParcelable((TypeElement) mTypes.asElement(element.asType()));
+//            field.isParcelable = isParcelable((TypeElement) mTypes.asElement(element.asType()));
             // Target Activity,like "cn.icheny.intentlife.sample.MainActivity" what is encapsulated in "TypeElement"
             TypeElement activityTypeElement = (TypeElement) element.getEnclosingElement();
             List<TargetField> fields = targetClassMap.get(activityTypeElement);
@@ -107,7 +107,9 @@ public class IntentLifeProcessor extends AbstractProcessor {
 
     /**
      * Find all parent classes and interfaces from current class.
+     * Now it is be deprecated.
      */
+    @Deprecated
     private boolean isParcelable(TypeElement currentClass) {
 
         if (null == currentClass) {
