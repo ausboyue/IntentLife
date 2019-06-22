@@ -15,6 +15,4 @@ final class TargetField {
     String fieldType;
     // The value of annotation "BindIntentKey"
     String keyName;
-    // Whether the interface is implemented: android.os.Parcelable
-    boolean isParcelable;
 }
