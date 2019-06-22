@@ -82,8 +82,8 @@ public class ActivityB extends AppCompatActivity {
 
 #### Interface scenario
 
-- [x] Support jump between activities.
-- [ ] The next version supports loading Fragment.
+- [x] Support jump between Activities.
+- [x] Support loading Fragments.
 
 ### Prompt
 

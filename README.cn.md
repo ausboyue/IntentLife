@@ -85,7 +85,7 @@ public class ActivityB extends AppCompatActivity {
 #### 界面场景
 
 - [x] 支持Activity间的跳转。
-- [ ] 下个版本支持加载Fragment。
+- [x] 支持加载Fragment。
 
 ### 使用注意
 
