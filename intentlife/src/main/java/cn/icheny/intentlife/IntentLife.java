@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
  *     @author : www.icheny.cn
  *     @e-mail : ausboyue@gmail.com
  *     @time   : 2019.06.15
- *     @desc   : Use this class to simplify finding data form Intent or Bundle by binding them
+ *     @desc   : Use this class to simplify finding data from Intent or Bundle by binding them
  *               with annotations.
  * </pre>
  */
