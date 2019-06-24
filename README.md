@@ -76,14 +76,16 @@ public class ActivityB extends AppCompatActivity {
 
 #### Type of data 
 
-- [x] Support java eight basic data types and their arrays and collections.
-- [x] Classes that support the implementation of the Serializable interface.
-- [x] Support for classes that implement Parcelable interfaces and their arrays and collections.
+- [x] Support java eight basic data types and their arrays and collections
+- [x] Classes that support the implementation of the Serializable interface
+- [x] Support for classes that implement Parcelable interfaces and their arrays and collections
+- [x] Support all data types supported by android Bundle
 
 #### Interface scenario
 
-- [x] Support jump between Activities.
-- [x] Support loading Fragments.
+- [x] Support jump between Activities
+- [x] Support loading Fragments
+- [x] Support for use in any class that needs to use data, such as the Presenter class in MVP design
 
 ### Prompt
 

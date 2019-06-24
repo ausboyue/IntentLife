@@ -78,14 +78,16 @@ public class ActivityB extends AppCompatActivity {
 
 #### 数据类型 
 
-- [x] 支持java八大基本数据类型及其数组和集合。
-- [x] 支持实现java序列化Serializable接口的类。
-- [x] 支持实现android序列化Parcelable接口的类及其数组和集合。
+- [x] 支持java八大基本数据类型及其数组和集合
+- [x] 支持实现java序列化Serializable接口的类
+- [x] 支持实现android序列化Parcelable接口的类及其数组和集合
+- [x] 支持android Bundle所支持的所有数据类型
 
 #### 界面场景
 
-- [x] 支持Activity间的跳转。
-- [x] 支持加载Fragment。
+- [x] 支持Activity间的跳转
+- [x] 支持加载Fragment
+- [x] 支持在任何需要使用数据的类中使用，如MVP设计中的Presenter类
 
 ### 使用注意
 
