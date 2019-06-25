@@ -9,7 +9,7 @@
 
 #### 介绍
 
-一个自动绑定Intent携带的数据的android库。
+一个自动绑定Intent或Bundle携带的数据的android库。
 
 ## 从Gradle下载
 

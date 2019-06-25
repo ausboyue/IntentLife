@@ -9,7 +9,7 @@
 
 #### Description
 
-An android library that automatically binds data carried by the Intent.
+An android library that automatically binds data carried by the Intent or Bundle.
 
 ## Download from Gradle
 
