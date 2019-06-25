@@ -4,7 +4,7 @@
 
 **[English](./README.md) | 简体中文**
 
-![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.2-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-156KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-3.2KB-blue.svg)
+![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.3-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-156KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-3.2KB-blue.svg)
 
 
 #### 介绍
@@ -28,8 +28,8 @@
 
 ```groovy
     dependencies {
-          implementation 'com.github.ausboyue.IntentLife:intentlife:v1.0.2'
-          annotationProcessor 'com.github.ausboyue.IntentLife:intentlife_compiler:v1.0.2'
+          implementation 'com.github.ausboyue.IntentLife:intentlife:v1.0.3'
+          annotationProcessor 'com.github.ausboyue.IntentLife:intentlife_compiler:v1.0.3'
     }
 ```
 
