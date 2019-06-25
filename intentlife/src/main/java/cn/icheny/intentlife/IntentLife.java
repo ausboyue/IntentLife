@@ -1,6 +1,7 @@
 package cn.icheny.intentlife;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -36,11 +37,7 @@ public class IntentLife {
      * @param target Target activity for data binding.
      */
     public static void bind(@NonNull Activity target) {
-        final Bundle sourceBundle = target.getIntent().getExtras();
-        if (sourceBundle == null) {
-            return;
-        }
-        createBinder(target, sourceBundle);
+        createBinder(target, target.getIntent().getExtras());
     }
 
     /**
@@ -50,11 +47,7 @@ public class IntentLife {
      * @param target Target fragment for data binding.
      */
     public static void bind(@NonNull android.app.Fragment target) {
-        Bundle sourceBundle = target.getArguments();
-        if (sourceBundle == null) {
-            return;
-        }
-        createBinder(target, sourceBundle);
+        createBinder(target, target.getArguments());
     }
 
     /**
@@ -64,11 +57,18 @@ public class IntentLife {
      * @param target Target fragment for data binding.
      */
     public static void bind(@NonNull Fragment target) {
-        Bundle sourceBundle = target.getArguments();
-        if (sourceBundle == null) {
-            return;
-        }
-        createBinder(target, sourceBundle);
+        createBinder(target, target.getArguments());
+    }
+
+    /**
+     * BindIntentKey annotated fields in the specified {@code target} using the {@code source}
+     * {@link Intent}.
+     *
+     * @param target Target class for data binding.
+     * @param source Data source which contains Bundle.
+     */
+    public static void bind(@NonNull Object target, @NonNull Intent source) {
+        createBinder(target, source.getExtras());
     }
 
     /**
@@ -85,7 +85,15 @@ public class IntentLife {
     /**
      * Create binder.
      */
-    private static void createBinder(@NonNull Object target, @NonNull Bundle source) {
+    private static void createBinder(Object target, Bundle source) {
+
+        if (target == null) {
+            return;
+        }
+        if (source == null) {
+            return;
+        }
+
         final String name = target.getClass().getName();
         final String binderName = name + "_Binder";
         try {
