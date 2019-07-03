@@ -59,7 +59,7 @@ public class IntentLifeProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        JavaFileCreator.create(mElementUtils, processingEnv.getFiler(), findTargetClasses(roundEnvironment));
+        BinderFactory.produceProxy(mElementUtils, processingEnv.getFiler(), findTargetClasses(roundEnvironment));
         return false;
     }
 
@@ -107,7 +107,7 @@ public class IntentLifeProcessor extends AbstractProcessor {
 
     /**
      * Find all parent classes and interfaces from current class.
-     * Now it is be deprecated.
+     * It is be deprecated,now.
      */
     @Deprecated
     private boolean isParcelable(TypeElement currentClass) {

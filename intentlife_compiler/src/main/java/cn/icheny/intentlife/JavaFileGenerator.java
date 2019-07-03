@@ -19,10 +19,11 @@ import javax.lang.model.util.Elements;
  *     @author : www.icheny.cn
  *     @e-mail : ausboyue@gmail.com
  *     @time   : 2019.06.15
- *     @desc   : Creator.
+ *     @desc   : Generator.
  * </pre>
  */
-final class JavaFileCreator {
+final class JavaFileGenerator {
+
     private static final String FILE_COMMENT = "This class is generated automatically by IntentLife. Do not modify!";
     private static final String BUNDLE_CLASS_NAME = "android.os.Bundle";
     private static final String BINDER_CLASS_SUFFIX = "_Binder";
@@ -31,7 +32,24 @@ final class JavaFileCreator {
     private static final String TARGET = "target";
     private static final String SOURCE = "source";
 
-    static void create(Elements elementUtils, Filer filer, Map<TypeElement, List<TargetField>> targetClasses) {
+    /**
+     * Generate java file.
+     *
+     * @param filer
+     * @param file
+     */
+    static void generate(Filer filer, JavaFile file) {
+        if (file == null) {
+            return;
+        }
+        try {
+            file.writeTo(filer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void produceProxy(Elements elementUtils, Filer filer, Map<TypeElement, List<TargetField>> targetClasses) {
         for (Map.Entry<TypeElement, List<TargetField>> entry : targetClasses.entrySet()) {
 
             final List<TargetField> fields = entry.getValue();
