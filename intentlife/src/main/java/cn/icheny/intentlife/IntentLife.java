@@ -86,14 +86,9 @@ public class IntentLife {
      * Create binder.
      */
     private static void createBinder(Object target, Bundle source) {
-
-        if (target == null) {
+        if (target == null || source == null) {
             return;
         }
-        if (source == null) {
-            return;
-        }
-
         final String name = target.getClass().getName();
         final String binderName = name + "_Binder";
         try {

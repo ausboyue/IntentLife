@@ -59,7 +59,7 @@ public class IntentLifeProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        BinderFactory.produceProxy(mElementUtils, processingEnv.getFiler(), findTargetClasses(roundEnvironment));
+        BinderFactory.produce(mElementUtils, processingEnv.getFiler(), findTargetClasses(roundEnvironment));
         return false;
     }
 
