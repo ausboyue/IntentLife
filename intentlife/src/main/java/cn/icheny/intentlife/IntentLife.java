@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.UiThread;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -36,6 +36,7 @@ public class IntentLife {
      *
      * @param target Target activity for data binding.
      */
+    @UiThread
     public static void bind(@NonNull Activity target) {
         createBinder(target, target.getIntent().getExtras());
     }
@@ -46,6 +47,7 @@ public class IntentLife {
      *
      * @param target Target fragment for data binding.
      */
+    @UiThread
     public static void bind(@NonNull android.app.Fragment target) {
         createBinder(target, target.getArguments());
     }
@@ -56,6 +58,7 @@ public class IntentLife {
      *
      * @param target Target fragment for data binding.
      */
+    @UiThread
     public static void bind(@NonNull Fragment target) {
         createBinder(target, target.getArguments());
     }
@@ -67,6 +70,7 @@ public class IntentLife {
      * @param target Target class for data binding.
      * @param source Data source which contains Bundle.
      */
+    @UiThread
     public static void bind(@NonNull Object target, @NonNull Intent source) {
         createBinder(target, source.getExtras());
     }
@@ -78,6 +82,7 @@ public class IntentLife {
      * @param target Target class for data binding.
      * @param source Data on which key will be looked up.
      */
+    @UiThread
     public static void bind(@NonNull Object target, @NonNull Bundle source) {
         createBinder(target, source);
     }
