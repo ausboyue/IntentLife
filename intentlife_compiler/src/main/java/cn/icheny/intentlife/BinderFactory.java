@@ -23,6 +23,8 @@ import javax.lang.model.util.Elements;
  * </pre>
  */
 final class BinderFactory {
+    private static final TypeName BINDER_INTERFACE = ClassName.get("cn.icheny.intentlife", "IBinder");
+    private static final ClassName UI_THREAD_ANNOTATION = ClassName.get("android.support.annotation", "UiThread");
     private static final String PROXY_PACKAGE_NAME = "cn.icheny.intentlife";
     private static final String PROXY_NAME = "BinderProxy";
     private static final String FILE_COMMENT = "This class is generated automatically by IntentLife. Do not modify!";
@@ -81,6 +83,7 @@ final class BinderFactory {
         // constructor method
         final MethodSpec.Builder constrBuilder = MethodSpec.constructorBuilder().addModifiers(Modifier.PUBLIC);
         final MethodSpec.Builder bindMethodBuilder = MethodSpec.methodBuilder(BIND)
+                .addAnnotation(UI_THREAD_ANNOTATION)
                 .addModifiers(Modifier.PUBLIC)
                 .addParameter(ClassName.bestGuess(targetClassName), TARGET)
                 .addParameter(ClassName.bestGuess(BUNDLE_CLASS_NAME), SOURCE);
@@ -94,6 +97,7 @@ final class BinderFactory {
         }
         final TypeSpec.Builder typeBuilder = TypeSpec.classBuilder(binderClassName)
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
+                .addSuperinterface(BINDER_INTERFACE)
                 .addMethod(constrBuilder.build())
                 .addMethod(bindMethodBuilder.build());
         return JavaFile.builder(packageName, typeBuilder.build())
