@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Retain generated class which implement IBinder.
+-keep public class * implements cn.icheny.intentlife.IBinder{ *;}
+# Retain all class in IntentLife.
+-keep class cn.icheny.intentlife.*{*;}
