@@ -7,8 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.UiThread;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import java.lang.reflect.Constructor;
+
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * <pre>
@@ -92,22 +93,21 @@ public class IntentLife {
      */
     private static void createBinder(Object target, Bundle source) {
         if (target == null || source == null) {
+            if (loggable)
+                Log.e(TAG, "The value of parameter in \"IntentLife.bind(target,source)\" is null." +
+                        "IntentLife has stoped work on current bind event.");
             return;
         }
-        final String name = target.getClass().getName();
-        final String binderName = name + "_Binder";
         try {
-            final Class<?> clazz = Class.forName(binderName);
-            final Constructor<?> constructor = clazz.getConstructor(target.getClass(), source.getClass());
-            constructor.newInstance(target, source);
+            final Class<?> clazz = Class.forName("cn.icheny.intentlife.BinderProxy");
+            final Method sBindMethod = clazz.getMethod("bind", Object.class, Bundle.class);
+            sBindMethod.invoke(null, target, source);
         } catch (ClassNotFoundException e) {
             if (loggable) Log.d(TAG, e.getMessage());
         } catch (IllegalAccessException e) {
-            throw new RuntimeException("Unable to invoke newInstance(target, source)", e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException("Unable to invoke newInstance(target, source)", e);
+            throw new RuntimeException("Unable to invoke cn.icheny.intentlife.BinderProxy.bind(target, source)", e);
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException("Unable to find binder constructor for " + binderName, e);
+            throw new RuntimeException("Unable to find proxy static method for bind(target, source)", e);
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
             if (cause instanceof RuntimeException) {
@@ -116,7 +116,7 @@ public class IntentLife {
             if (cause instanceof Error) {
                 throw (Error) cause;
             }
-            throw new RuntimeException("Unable to create binder instance.", cause);
+            throw new RuntimeException("Unable to invoke cn.icheny.intentlife.BinderProxy.bind(target, source)", e);
         }
     }
 }
