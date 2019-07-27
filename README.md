@@ -4,7 +4,7 @@
 
 **English | [简体中文](./README.cn.md)**
 
-![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.4-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-156KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-3.1KB-blue.svg)
+![License](https://img.shields.io/github/license/ausboyue/IntentLife.svg) ![platform](https://img.shields.io/badge/platform-android-green.svg) ![jitpack](https://jitpack.io/v/ausboyue/IntentLife.svg) ![Latest](https://img.shields.io/badge/Latest-1.0.4-brightgreen.svg) ![RepoSize](https://img.shields.io/badge/RepoSize-167KB-blue.svg) ![CoreSize](https://img.shields.io/badge/CoreSize-3.1KB-blue.svg)
 
 
 #### Description
