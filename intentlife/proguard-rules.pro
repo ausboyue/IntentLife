@@ -20,7 +20,12 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# Retain generated class which implement IBinder.
--keep public class * implements cn.icheny.intentlife.IBinder{ *;}
-# Retain all class in IntentLife.
--keep class cn.icheny.intentlife.*{*;}
+# Retain generated child class which implement IBinder.
+# But these rules are not required,now.Close it to improve security.
+#-keep class cn.icheny.intentlife.IBinder{*;}
+#-keep class * implements cn.icheny.intentlife.IBinder{*;}
+
+# Only retain members of IntentLife.
+-keepclassmembers class cn.icheny.intentlife.IntentLife
+# Retain proxy class name and members.
+-keep class cn.icheny.intentlife.BinderProxy{*;}
